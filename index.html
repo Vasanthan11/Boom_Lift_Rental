@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- =========================================
+       META + TITLE
+  ========================================== -->
+  <meta charset="UTF-8">
+  <title>BoomLiftRent | Boom Lifts, Man Lifts, Cherry Pickers & Scissor Lifts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- =========================================
+       GOOGLE FONT: OSWALD
+  ========================================== -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- =========================================
+       GLOBAL STYLES
+  ========================================== -->
+  <style>
+    /* ------------------------------
+       GLOBAL RESET + TYPOGRAPHY
+    ------------------------------ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Oswald", sans-serif;
+    }
+
+    body {
+      background-color: #F9F6F3;
+      color: #111111;
+      line-height: 1.4;
+      overflow-x: hidden;
+    }
+
+    main {
+      margin-top: 80px; /* space for sticky navbar fragment */
+    }
+
+    section {
+      padding: 4rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ------------------------------
+       SHARED BUTTON STYLE
+       (USED ACROSS ALL SECTIONS)
+    ------------------------------ */
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.7rem;
+      border-radius: 999px;
+      border: none;
+      outline: none;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      background-color: #872341;
+      color: #F9F6F3;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      white-space: nowrap;
+    }
+
+    /* only colour change on hover (no movement, no shadow) */
+    .btn:hover {
+      background-color: #A6B28B;
+      color: #111;
+    }
+
+    .btn-secondary {
+      background-color: #F9F6F3;
+      color: #872341;
+      border: 1px solid #F5C9B0;
+    }
+
+    .btn-secondary:hover {
+      background-color: #F5C9B0;
+      color: #111;
+    }
+
+    /* =========================================
+       SECTION 1: HERO / BANNER
+    ========================================== */
+    .hero {
+      background: linear-gradient(120deg, #872341 0%, #A6B28B 55%, #F5C9B0 100%);
+      color: #F9F6F3;
+      padding-top: 5rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+      color: #F9F6F3;
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-text {
+      font-size: 0.98rem;
+      max-width: 32rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-highlight {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #F9F6F3;
+      opacity: 0.9;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .hero-stat {
+      padding: 0.9rem 1rem;
+      border-radius: 16px;
+      background-color: rgba(249, 246, 243, 0.08);
+      border: 1px solid rgba(249, 246, 243, 0.3);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    /* RIGHT COLUMN BLOCK */
+    .hero-right {
+      background-color: #F9F6F3;
+      border-radius: 22px;
+      padding: 1.5rem 1.3rem 1.3rem;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .hero-right-top-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .hero-right-tag {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #872341;
+    }
+
+    .hero-photo-wrapper {
+      flex-shrink: 0;
+      width: fit-content;
+      height: 350px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid #E1DDD5;
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-right-box {
+      border-radius: 18px;
+      border: 1px dashed #d0c6be;
+      padding: 1.2rem 1.1rem;
+      background: #F9F6F3;
+    }
+
+    .hero-right-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-right-sub {
+      font-size: 0.87rem;
+      color: #444;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-right-list {
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.84rem;
+      color: #333;
+    }
+
+    .hero-right-list span {
+      font-weight: 600;
+    }
+
+    /* =========================================
+       SECTION 2: OVERLAPPING FEATURE CARDS
+    ========================================== */
+    .features {
+      background-color: #F9F6F3;
+      margin-top: -2rem;
+    }
+
+    .features-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .feature-card {
+      background-color: #FFFFFF;
+      border-radius: 18px;
+      padding: 1.3rem 1.1rem;
+      border: 1px solid #E1DDD5;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .feature-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #872341;
+    }
+
+    .feature-title {
+      font-size: 1.05rem;
+    }
+
+    .feature-text {
+      font-size: 0.86rem;
+      color: #555;
+      flex-grow: 1;
+    }
+
+    .feature-link {
+      border: none;
+      background: none;
+      color: #872341;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      text-align: left;
+      cursor: pointer;
+      padding: 0;
+      margin-top: 0.3rem;
+    }
+
+    .feature-link:hover {
+      color: #A6B28B;
+    }
+
+    /* =========================================
+       SECTION 3: SERVICES
+    ========================================== */
+    .services {
+      background-color: #FFFFFF;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-tag {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #872341;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 1.9rem;
+      text-transform: uppercase;
+    }
+
+    .section-sub {
+      font-size: 0.95rem;
+      color: #555;
+      max-width: 32rem;
+      margin: 0.6rem auto 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background-color: #F9F6F3;
+      border-radius: 18px;
+      padding: 1.5rem 1.4rem;
+      border: 1px solid #E1DDD5;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .service-tag {
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #872341;
+    }
+
+    .service-title {
+      font-size: 1.1rem;
+    }
+
+    .service-text {
+      font-size: 0.9rem;
+      color: #444;
+      flex-grow: 1;
+    }
+
+    /* =========================================
+       SECTION 4: IMAGE LISTING / GALLERY
+    ========================================== */
+    .gallery {
+      background-color: #A6B28B;
+    }
+
+    .gallery .section-title {
+      color: #111111;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .gallery-item {
+      border-radius: 24px;
+      overflow: hidden;
+      background: #F9F6F3;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-img {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .gallery-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-body {
+      padding: 0.9rem 1rem 1.1rem;
+    }
+
+    .gallery-title {
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .gallery-text {
+      font-size: 0.8rem;
+      color: #444;
+    }
+
+    /* =========================================
+       SECTION 5: PROCESS / HOW IT WORKS
+    ========================================== */
+    .process {
+      background-color: #F5C9B0;
+    }
+
+    .process-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .process-steps {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .process-step {
+      background-color: rgba(249, 246, 243, 0.9);
+      border-radius: 16px;
+      padding: 0.9rem 1rem;
+      border: 1px solid #E1DDD5;
+    }
+
+    .process-step-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #872341;
+      margin-bottom: 0.25rem;
+    }
+
+    .process-step-title {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .process-step-text {
+      font-size: 0.85rem;
+      color: #444;
+    }
+
+    .process-side {
+      background-color: #F9F6F3;
+      border-radius: 20px;
+      padding: 1.6rem 1.5rem;
+      border: 1px solid #E1DDD5;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .process-side-title {
+      font-size: 1.2rem;
+    }
+
+    .process-side-text {
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    /* =========================================
+       SECTION 6: CONTACT STRIP AT BOTTOM
+    ========================================== */
+    .contact-bottom {
+      background: #111111;
+      color: #F9F6F3;
+      text-align: center;
+      padding-top: 3.2rem;
+      padding-bottom: 3.2rem;
+    }
+
+    .contact-bottom .container {
+      max-width: 700px;
+    }
+
+    .contact-bottom-title {
+      font-size: 1.9rem;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-bottom-text {
+      font-size: 0.95rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .contact-bottom-meta {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #F5C9B0;
+      margin-bottom: 1.2rem;
+    }
+
+    .contact-bottom-line {
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-bottom-line a {
+      color: #F5C9B0;
+      text-decoration: none;
+    }
+
+    .contact-bottom-line a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-bottom-btn-row {
+      margin-top: 1.5rem;
+    }
+
+    /* =========================================
+       INLINE FORM WRAPPER (BOTTOM FORM.HTML)
+    ========================================== */
+    .inline-form-section {
+      background: #FFFFFF;
+      padding: 3rem 1.5rem;
+    }
+
+    .inline-form-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .inline-form-heading {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 1rem;
+      color: #432323;
+      margin-bottom: 0.6rem;
+    }
+
+    .inline-form-sub {
+      font-size: 0.9rem;
+      color: #444;
+      margin-bottom: 1.5rem;
+      max-width: 520px;
+    }
+
+    /* =========================================
+       MODAL FORM POPUP
+    ========================================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 2000;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-inner {
+      position: relative;
+      max-width: 1100px;
+      width: 100%;
+      max-height: 95vh;
+      overflow: auto;
+      border-radius: 22px;
+      background: transparent;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 6rem;
+      right: 2rem;
+      z-index: 10;
+      border: none;
+      background: #111111;
+      color: #F9F6F3;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content-wrapper {
+      border-radius: 22px;
+      overflow: hidden;
+    }
+
+    /* =========================================
+       RESPONSIVE QUERIES
+    ========================================== */
+    @media (max-width: 992px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .features-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .process-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      section {
+        padding: 3rem 1.25rem;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding-top: 4.2rem;
+        padding-bottom: 3.4rem;
+      }
+
+      .contact-bottom-title {
+        font-size: 1.6rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- =========================================
+       NAVBAR PLACEHOLDER
+  ========================================== -->
+  <div id="navbar-placeholder"></div>
+
+  <!-- =========================================
+       MAIN PAGE CONTENT
+  ========================================== -->
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <div class="hero-label">
+            BOOM LIFTS • MAN LIFTS • CHERRY PICKERS • SCISSOR LIFTS
+          </div>
+
+          <h1 class="hero-title">
+            SAFE HEIGHT ACCESS FOR EVERY TYPE OF PROJECT.
+          </h1>
+
+          <p class="hero-text">
+            Rent boom lifts, man lifts, cherry pickers and scissor lifts for maintenance, construction,
+            fit-outs and infrastructure works. Modern machines, safety-focused operation and quick support.
+          </p>
+
+          <div class="hero-cta-row">
+            <button class="btn js-open-form">
+              Click here to get a boom lift quote
+            </button>
+
+            <button class="btn btn-secondary js-open-form">
+              Click here to enquire for scissor lifts
+            </button>
+          </div>
+
+          <p class="hero-highlight">
+            Fast response • Best rental rates • Professional support
+          </p>
+
+          <div class="hero-stats">
+            <div class="hero-stat">Boom lifts for high reach</div>
+            <div class="hero-stat">Man lifts & cherry pickers</div>
+            <div class="hero-stat">Scissor lifts for level access</div>
+          </div>
+        </div>
+
+        <aside class="hero-right">
+          <div class="hero-right-top-row">
+            <!-- <div class="hero-right-tag">
+              Project-ready equipment
+            </div> -->
+
+            <div class="hero-photo-wrapper">
+              <img
+                class="hero-photo"
+                src="./images/010.webp"
+                alt="Operator working on a boom lift"
+              >
+            </div>
+          </div>
+
+          <div class="hero-right-box">
+            <h2 class="hero-right-title">Choose the right combination for your work at height.</h2>
+            <p class="hero-right-sub">
+              Combine boom lifts, man lifts, cherry pickers and scissor lifts to keep your teams safe and
+              productive while working at height.
+            </p>
+
+            <div class="hero-right-list">
+              <div><span>Boom lifts:</span> Articulated & telescopic for complex reach.</div>
+              <div><span>Man lifts:</span> Compact vertical access for tight spaces.</div>
+              <div><span>Cherry pickers:</span> Truck-mounted platforms for flexible jobs.</div>
+              <div><span>Scissor lifts:</span> Stable platforms for straight-up access.</div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+      <div class="features-inner">
+        <article class="feature-card">
+          <p class="feature-label">Boom lift rentals</p>
+          <h3 class="feature-title">Click here to book boom lifts</h3>
+          <p class="feature-text">
+            Telescopic and articulated boom lifts for long reach, obstacle clearance and precise positioning
+            on construction and maintenance sites.
+          </p>
+          <button class="feature-link js-open-form">
+            Click here to send boom lift enquiry
+          </button>
+        </article>
+
+        <article class="feature-card">
+          <p class="feature-label">Man lifts & cherry pickers</p>
+          <h3 class="feature-title">Click here to plan man lift access</h3>
+          <p class="feature-text">
+            Man lifts and cherry pickers designed for signage works, lighting, façade cleaning and quick
+            repair jobs where flexibility matters.
+          </p>
+          <button class="feature-link js-open-form">
+            Click here to request cherry picker details
+          </button>
+        </article>
+
+        <article class="feature-card">
+          <p class="feature-label">Scissor lift rentals</p>
+          <h3 class="feature-title">Click here to schedule scissor lifts</h3>
+          <p class="feature-text">
+            Electric and diesel scissor lifts offering wide, stable platforms for indoor fit-outs,
+            warehouses, malls and industrial facilities.
+          </p>
+          <button class="feature-link js-open-form">
+            Click here to book scissor lifts
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services">
+      <div class="container">
+        <header class="section-heading">
+          <p class="section-tag">What we offer</p>
+          <h2 class="section-title">Rental solutions built around your work at height</h2>
+          <p class="section-sub">
+            Combine boom lifts, man lifts, cherry pickers and scissor lifts to match your site conditions,
+            access challenges and project timelines.
+          </p>
+        </header>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <p class="service-tag">Boom lift rentals</p>
+            <h3 class="service-title">Articulated & telescopic boom lifts</h3>
+            <p class="service-text">
+              Get the outreach you need with a range of boom lifts designed to handle obstacles, long
+              spans and high working heights with operator-friendly controls.
+            </p>
+            <button class="btn js-open-form">
+              Click here to rent boom lifts
+            </button>
+          </article>
+
+          <article class="service-card">
+            <p class="service-tag">Man lifts & cherry pickers</p>
+            <h3 class="service-title">Compact vertical lifts & truck-mounted access</h3>
+            <p class="service-text">
+              For signboards, lighting, façades, utility work and one-day access tasks, man lifts and
+              cherry pickers deliver a flexible, mobile solution.
+            </p>
+            <button class="btn js-open-form">
+              Click here to rent man lifts
+            </button>
+          </article>
+
+          <article class="service-card">
+            <p class="service-tag">Scissor lift rentals</p>
+            <h3 class="service-title">Electric & rough terrain scissor lifts</h3>
+            <p class="service-text">
+              Choose scissor lifts when you need straight-up, stable access with room for tools and materials
+              on the platform for efficient work cycles.
+            </p>
+            <button class="btn js-open-form">
+              Click here to rent scissor lifts
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery">
+      <div class="container">
+        <header class="section-heading">
+          <p class="section-tag">Fleet snapshots</p>
+          <h2 class="section-title">Sample models from our access equipment range</h2>
+          <p class="section-sub">
+            A quick view of some of the boom lifts, man lifts, cherry pickers and scissor lifts available
+            for your next project. Replace these images with your own later.
+          </p>
+        </header>
+
+        <div class="gallery-grid">
+          <article class="gallery-item">
+            <div class="gallery-img">
+              <img
+                src="./images/006.webp"
+                alt="Articulated boom lift placeholder"
+              >
+            </div>
+            <div class="gallery-body">
+              <h3 class="gallery-title">Articulated boom lift</h3>
+              <p class="gallery-text">
+                Flexible reach around obstacles, ideal for complex site conditions.
+              </p>
+            </div>
+          </article>
+
+          <article class="gallery-item">
+            <div class="gallery-img">
+              <img
+                src="./images/b8.jpg"
+                alt="Telescopic boom lift placeholder"
+              >
+            </div>
+            <div class="gallery-body">
+              <h3 class="gallery-title">Telescopic boom lift</h3>
+              <p class="gallery-text">
+                Straight boom reach for open sites and long horizontal access.
+              </p>
+            </div>
+          </article>
+
+          <article class="gallery-item">
+            <div class="gallery-img">
+              <img
+                src="./images/man01.webp"
+                alt="Vertical man lift placeholder"
+              >
+            </div>
+            <div class="gallery-body">
+              <h3 class="gallery-title">Vertical man lift</h3>
+              <p class="gallery-text">
+                Compact, vertical access where space and turning radius are limited.
+              </p>
+            </div>
+          </article>
+
+          <article class="gallery-item">
+            <div class="gallery-img">
+              <img
+                src="./images/cherry.jpg"
+                alt="Truck-mounted cherry picker placeholder"
+              >
+            </div>
+            <div class="gallery-body">
+              <h3 class="gallery-title">Truck-mounted cherry picker</h3>
+              <p class="gallery-text">
+                Mobile platform for signboards, lighting and quick-access jobs.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process">
+      <div class="container process-inner">
+        <div>
+          <header class="section-heading" style="text-align:left;margin-bottom:1.4rem;">
+            <p class="section-tag">How it works</p>
+            <h2 class="section-title">Simple rental process for your access needs</h2>
+          </header>
+
+          <div class="process-steps">
+            <div class="process-step">
+              <p class="process-step-label">Step 01</p>
+              <h3 class="process-step-title">Click here and share your requirement</h3>
+              <p class="process-step-text">
+                Use any of the enquiry buttons on this page to send details about your site,
+                working height, equipment type and rental duration.
+              </p>
+            </div>
+
+            <div class="process-step">
+              <p class="process-step-label">Step 02</p>
+              <h3 class="process-step-title">
+                Receive a customised boom lift, man lift, cherry picker or scissor lift quote
+              </h3>
+              <p class="process-step-text">
+                Our team reviews your requirement and shares suitable equipment options, availability
+                and transparent rental pricing.
+              </p>
+            </div>
+
+            <div class="process-step">
+              <p class="process-step-label">Step 03</p>
+              <h3 class="process-step-title">Confirm schedule and start work at height</h3>
+              <p class="process-step-text">
+                Once confirmed, machines are scheduled, deployed to site and supported by our team,
+                helping your work at height start safely and on time.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="process-side">
+          <h3 class="process-side-title">
+            Need help choosing between boom lifts, man lifts, cherry pickers or scissor lifts?
+          </h3>
+
+          <p class="process-side-text">
+            If you’re not sure which access equipment best suits your job, simply send a brief
+            enquiry and our team can suggest options based on working height, reach and site limitations.
+          </p>
+
+          <button class="btn js-open-form">
+            Click here to talk with our team
+          </button>
+        </aside>
+      </div>
+    </section>
+ <!-- CONTACT STRIP -->
+    <section class="contact-bottom">
+      <div class="container">
+        <h2 class="contact-bottom-title">
+          Ready to plan your next access equipment rental?
+        </h2>
+
+        <p class="contact-bottom-text">
+          Whether you need boom lifts, man lifts, cherry pickers, scissor lifts or a mix of all four,
+          we can structure a rental plan that matches your project timeline and safety needs.
+        </p>
+
+        <p class="contact-bottom-meta">
+          Fast response • Transparent pricing • Support-focused rentals
+        </p>
+
+        <p class="contact-bottom-line">
+          CALL: <a href="tel:+919999999999">+91 99999 99999</a>
+        </p>
+
+        <p class="contact-bottom-line">
+          EMAIL: <a href="mailto:info@boomliftrentals.com">info@boomliftrentals.com</a>
+        </p>
+
+        <div class="contact-bottom-btn-row">
+          <button class="btn js-open-form">
+            Click here to send rental enquiry
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- BOTTOM INLINE FORM (FULL form.html LOADED HERE) -->
+    <section>
+      <div class="inline-form-inner">
+        <h2 class="inline-form-heading">Enquiry form</h2>
+        <p class="inline-form-sub">
+          Prefer to see the full enquiry form directly on this page? Fill it out below – the same form
+          that opens in the popup is shown here in full view.
+        </p>
+
+        <!-- form.html will be injected here -->
+        <div id="inline-form-placeholder"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER PLACEHOLDER -->
+  <div id="footer-placeholder"></div>
+
+  <!-- POPUP FORM MODAL -->
+  <div class="modal-overlay" id="formModal">
+    <div class="modal-inner">
+      <button class="modal-close" id="formModalClose" aria-label="Close form">&times;</button>
+      <div class="modal-content-wrapper" id="formModalContent">
+        <!-- form.html content will be injected here for popup -->
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      /* ------------------------------
+         LOAD NAVBAR + INIT HAMBURGER
+      ------------------------------ */
+      fetch("navbar.html")
+        .then(function (response) { return response.text(); })
+        .then(function (html) {
+          document.getElementById("navbar-placeholder").innerHTML = html;
+
+          // IMPORTANT: hook hamburger after navbar is injected
+          var toggleBtn = document.getElementById("navbarToggle");
+          var mobilePanel = document.getElementById("navbarMobilePanel");
+
+          if (toggleBtn && mobilePanel) {
+            toggleBtn.addEventListener("click", function () {
+              toggleBtn.classList.toggle("active");
+              mobilePanel.classList.toggle("open");
+            });
+          }
+        })
+        .catch(function (err) {
+          console.error("Error loading navbar.html", err);
+        });
+
+      /* ------------------------------
+         LOAD FOOTER
+      ------------------------------ */
+      fetch("footer.html")
+        .then(function (response) { return response.text(); })
+        .then(function (html) {
+          document.getElementById("footer-placeholder").innerHTML = html;
+        })
+        .catch(function (err) {
+          console.error("Error loading footer.html", err);
+        });
+
+      /* ------------------------------
+         LOAD form.html INTO INLINE AREA
+         (VISIBLE FULL FORM AT BOTTOM)
+      ------------------------------ */
+      fetch("form.html")
+        .then(function (response) { return response.text(); })
+        .then(function (html) {
+          var inlinePlaceholder = document.getElementById("inline-form-placeholder");
+          if (inlinePlaceholder) {
+            inlinePlaceholder.innerHTML = html;
+          }
+        })
+        .catch(function (err) {
+          console.error("Error loading inline form.html", err);
+        });
+
+      /* ------------------------------
+         SETUP POPUP LOGIC
+      ------------------------------ */
+      setupFormPopup();
+    });
+
+    // POPUP FORM HANDLING
+    function setupFormPopup() {
+      var modal = document.getElementById("formModal");
+      var modalClose = document.getElementById("formModalClose");
+      var modalContent = document.getElementById("formModalContent");
+      var formLoaded = false;
+
+      // open popup on any .js-open-form click
+      document.addEventListener("click", function (event) {
+        var target = event.target;
+        if (target.classList.contains("js-open-form")) {
+          event.preventDefault();
+          openModal();
+        }
+      });
+
+      function openModal() {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+
+        if (!formLoaded) {
+          fetch("form.html")
+            .then(function (response) { return response.text(); })
+            .then(function (html) {
+              modalContent.innerHTML = html;
+              formLoaded = true;
+            })
+            .catch(function (err) {
+              console.error("Error loading form.html for popup", err);
+              modalContent.innerHTML =
+                "<div style='background:#F9F6F3;padding:2rem;border-radius:1rem;color:#111;'>Unable to load form at the moment.</div>";
+            });
+        }
+      }
+
+      function closeModal() {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      if (modalClose) {
+        modalClose.addEventListener("click", closeModal);
+      }
+
+      modal.addEventListener("click", function (event) {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && modal.classList.contains("active")) {
+          closeModal();
+        }
+      });
+    }
+  </script>
+</body>
+</html>

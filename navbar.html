@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Navbar - Boom Lift Rent</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- OSWALD FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /*******************************
+      GLOBAL RESET + BOX SIZING
+    *******************************/
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Oswald", sans-serif;
+      background-color: #F9F6F3;
+      line-height: 1.4;
+    }
+
+    /*******************************
+      NAVBAR WRAPPER (FULL WIDTH)
+      GRADIENT BACKGROUND
+      FIXED ON SCROLL
+    *******************************/
+    .navbar-wrapper {
+      width: 100%;
+      background: linear-gradient(90deg, #872341 0%, #A6B28B 100%);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.16);
+      position: fixed;      /* CHANGED from sticky to fixed */
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+    }
+
+    /*******************************
+      NAVBAR CONTAINER (CENTERED)
+    *******************************/
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    /*******************************
+      LOGO
+    *******************************/
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #F9F6F3;
+      white-space: nowrap;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .navbar-logo-placeholder {
+      width: 45px;
+      height: 45px;
+      border-radius: 8px;
+      background-color: #F5C9B0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #872341;
+      text-transform: uppercase;
+    }
+
+    /*******************************
+      DESKTOP NAV LINKS
+    *******************************/
+    .navbar-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.8rem;
+      flex: 1;
+    }
+
+    .navbar-links a {
+      text-decoration: none;
+      font-size: 0.96rem;
+      font-weight: 500;
+      color: #F9F6F3;
+      padding-bottom: 2px;
+      transition: color 0.25s ease;   /* only color change */
+    }
+
+    .navbar-links a:hover {
+      color: #F5C9B0;
+    }
+
+    /*******************************
+      CALL BUTTON (DESKTOP)
+    *******************************/
+    .navbar-call-btn {
+      padding: 0.6rem 1.3rem;
+      border-radius: 999px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background-color: #F5C9B0;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .navbar-call-btn a {
+      text-decoration: none;
+      color: #872341;
+    }
+
+    .navbar-call-btn:hover {
+      background-color: #F9F6F3;   /* only color change */
+      color: #872341;
+    }
+
+    .navbar-call-btn:hover a {
+      color: #872341;
+    }
+
+    /* desktop-only button */
+    .navbar-call-btn-desktop {
+      display: inline-block;
+    }
+
+    /*******************************
+      HAMBURGER (MOBILE TOGGLE)
+    *******************************/
+    .navbar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 32px;
+      height: 26px;
+      position: relative;
+    }
+
+    .navbar-toggle-line {
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      border-radius: 999px;
+      background-color: #F9F6F3;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .navbar-toggle-line:nth-child(1) { top: 0; }
+    .navbar-toggle-line:nth-child(2) { top: 50%; transform: translateY(-50%); }
+    .navbar-toggle-line:nth-child(3) { bottom: 0; }
+
+    /* X state */
+    .navbar-toggle.active .navbar-toggle-line:nth-child(1) {
+      transform: translateY(10px) rotate(45deg);
+    }
+    .navbar-toggle.active .navbar-toggle-line:nth-child(2) {
+      opacity: 0;
+    }
+    .navbar-toggle.active .navbar-toggle-line:nth-child(3) {
+      transform: translateY(-10px) rotate(-45deg);
+    }
+
+    /*******************************
+      MOBILE MENU WRAPPER
+    *******************************/
+    .navbar-mobile-menu {
+      display: none;
+    }
+
+    /*******************************
+      RESPONSIVE
+    *******************************/
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 0.85rem 1.1rem;
+      }
+
+      .navbar-links {
+        display: none;  /* hide desktop links */
+      }
+
+      .navbar-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* hide desktop call button on mobile */
+      .navbar-call-btn-desktop {
+        display: none;
+      }
+
+      .navbar-mobile-menu {
+        display: block;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.1rem 1.1rem;
+      }
+
+      .navbar-mobile-panel {
+        display: none;
+        background-color: #872341;
+        border-radius: 0 0 18px 18px;
+        padding: 1rem;
+      }
+
+      .navbar-mobile-panel.open {
+        display: block;
+      }
+
+      .navbar-mobile-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .navbar-mobile-links a {
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #F9F6F3;
+        transition: color 0.25s ease;
+      }
+
+      .navbar-mobile-links a:hover {
+        color: #F5C9B0;
+      }
+
+      /* mobile call button fills width */
+      .navbar-call-btn-mobile {
+        width: 100%;
+        background-color: #F5C9B0;
+      }
+
+      .navbar-call-btn-mobile a {
+        color: #872341;
+      }
+
+      .navbar-call-btn-mobile:hover {
+        background-color: #F9F6F3;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="navbar-wrapper">
+    <header class="navbar">
+
+      <!-- LOGO -->
+      <a href="index.html" class="navbar-logo">
+       <img src="./images/logo-br.png" alt="Boom Lift Rent" style="height:60px; width:auto; border-radius: 10px; border: 2px solid white;">
+      </a>
+
+      <!-- DESKTOP NAV LINKS -->
+      <ul class="navbar-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="boom-lift-rentals.html">Boom Lift Rentals</a></li>
+        <li><a href="scissor-lift-rentals.html">Scissor Lift Rentals</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- RIGHT SIDE: DESKTOP CALL + HAMBURGER -->
+      <div>
+        <!-- desktop only button -->
+        <button class="navbar-call-btn navbar-call-btn-desktop">
+          <a href="tel:+919999999999">Click to call us</a>
+        </button>
+
+        <!-- hamburger for mobile -->
+        <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation">
+          <span class="navbar-toggle-line"></span>
+          <span class="navbar-toggle-line"></span>
+          <span class="navbar-toggle-line"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="navbar-mobile-menu">
+      <div class="navbar-mobile-panel" id="navbarMobilePanel">
+        <ul class="navbar-mobile-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="boom-lift-rentals.html">Boom Lift Rentals</a></li>
+          <li><a href="scissor-lift-rentals.html">Scissor Lift Rentals</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <!-- mobile only call button -->
+        <button class="navbar-call-btn navbar-call-btn-mobile">
+          <a href="tel:+919999999999">Click to call us</a>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // MOBILE MENU TOGGLE
+    const toggleBtn = document.getElementById('navbarToggle');
+    const mobilePanel = document.getElementById('navbarMobilePanel');
+
+    if (toggleBtn && mobilePanel) {
+      toggleBtn.addEventListener('click', function () {
+        toggleBtn.classList.toggle('active');
+        mobilePanel.classList.toggle('open');
+      });
+    }
+  </script>
+
+</body>
+</html>

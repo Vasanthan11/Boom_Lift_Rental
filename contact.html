@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- =========================================
+       META + TITLE
+  ========================================== -->
+  <meta charset="UTF-8">
+  <title>Contact | Boom Lift, Man Lift, Cherry Picker & Scissor Lift Rentals</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- GOOGLE FONT: OSWALD -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- =========================================
+       STYLES
+  ========================================== -->
+  <style>
+    /* GLOBAL RESET */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Oswald", sans-serif;
+    }
+
+    body {
+      background-color: #F9F6F3;
+      color: #111111;
+      line-height: 1.4;
+      overflow-x: hidden;
+    }
+
+    main {
+      margin-top: 80px; /* for sticky navbar fragment */
+    }
+
+    section {
+      padding: 4rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.7rem;
+      border-radius: 999px;
+      border: none;
+      outline: none;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      background-color: #872341;
+      color: #F9F6F3;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      background-color: #A6B28B; /* only colour change */
+      color: #111;
+    }
+
+    .btn-secondary {
+      background-color: #F9F6F3;
+      color: #872341;
+      border: 1px solid #F5C9B0;
+    }
+
+    .btn-secondary:hover {
+      background-color: #F5C9B0;
+      color: #111;
+    }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal-left {
+      transform: translateX(-40px);
+    }
+
+    .reveal-right {
+      transform: translateX(40px);
+    }
+
+    .reveal-visible {
+      opacity: 1;
+      transform: translateX(0) translateY(0);
+    }
+
+    /* =========================================
+       SECTION 1: CONTACT HERO
+    ========================================== */
+    .hero {
+      background: linear-gradient(120deg, #872341 0%, #A6B28B 55%, #F5C9B0 100%);
+      color: #F9F6F3;
+      padding-top: 5rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+      color: #F9F6F3;
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-text {
+      font-size: 0.98rem;
+      max-width: 34rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-meta {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-contact-lines {
+      font-size: 0.9rem;
+    }
+
+    .hero-contact-line {
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-contact-line a {
+      color: #F5C9B0;
+      text-decoration: none;
+    }
+
+    .hero-contact-line a:hover {
+      text-decoration: underline;
+    }
+
+    /* RIGHT: COMPACT INFO CARD */
+    .hero-card {
+      background-color: #F9F6F3;
+      border-radius: 22px;
+      padding: 1.5rem 1.4rem;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+      display: grid;
+      gap: 0.8rem;
+      color: #111;
+    }
+
+    .hero-card-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .hero-card-text {
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .hero-card-meta {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #777;
+      margin-top: 0.6rem;
+    }
+
+    /* =========================================
+       SECTION 2: DETAIL BLOCKS + "MAP"
+    ========================================== */
+    .details {
+      background-color: #FFFFFF;
+    }
+
+    .details-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .details-heading {
+      margin-bottom: 1.8rem;
+    }
+
+    .details-tag {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #872341;
+      margin-bottom: 0.4rem;
+    }
+
+    .details-title {
+      font-size: 1.9rem;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .details-text {
+      font-size: 0.95rem;
+      color: #555;
+      max-width: 36rem;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.4rem;
+      margin-top: 1.5rem;
+    }
+
+    .details-card {
+      background-color: #F9F6F3;
+      border-radius: 18px;
+      border: 1px solid #E1DDD5;
+      padding: 1.2rem 1.1rem;
+      display: grid;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .details-card-title {
+      font-size: 1rem;
+    }
+
+    .details-card-text {
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .details-card-line {
+      font-size: 0.9rem;
+    }
+
+    .details-card-line a {
+      color: #872341;
+      text-decoration: none;
+    }
+
+    .details-card-line a:hover {
+      text-decoration: underline;
+    }
+
+    .details-card-meta {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #777;
+    }
+
+    /* RIGHT: SERVICE AREAS + MAP PLACEHOLDER */
+    .details-side {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .details-side-box {
+      background-color: #F9F6F3;
+      border-radius: 18px;
+      border: 1px solid #E1DDD5;
+      padding: 1.3rem 1.2rem;
+      display: grid;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+    }
+
+    .details-side-title {
+      font-size: 1.05rem;
+    }
+
+    .details-side-text {
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .details-side-list {
+      list-style: none;
+      font-size: 0.88rem;
+      color: #444;
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    .details-side-list li::before {
+      content: "• ";
+      margin-right: 0.3rem;
+    }
+
+    .map-placeholder {
+      border-radius: 18px;
+      border: 1px dashed #CFC6BC;
+      padding: 1.2rem 1.1rem;
+      background: #F9F6F3;
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.86rem;
+    }
+
+    .map-placeholder-title {
+      font-size: 0.96rem;
+    }
+
+    .map-placeholder-box {
+      margin-top: 0.4rem;
+      height: 170px;
+      border-radius: 12px;
+      border: 1px solid #E1DDD5;
+      background: repeating-linear-gradient(
+        45deg,
+        #FFFFFF,
+        #FFFFFF 10px,
+        #F0ECE5 10px,
+        #F0ECE5 20px
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    /* =========================================
+       SECTION 3: CTA STRIP
+    ========================================== */
+    .cta-strip {
+      background-color: #111111;
+      color: #F9F6F3;
+    }
+
+    .cta-strip-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .cta-strip-title {
+      font-size: 1.9rem;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+    }
+
+    .cta-strip-text {
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .cta-strip-meta {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #F5C9B0;
+      margin-bottom: 1.3rem;
+    }
+
+    .cta-strip-contact {
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .cta-strip-contact a {
+      color: #F5C9B0;
+      text-decoration: none;
+    }
+
+    .cta-strip-contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* MODAL FORM POPUP */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 2000;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-inner {
+      position: relative;
+      max-width: 1100px;
+      width: 100%;
+      max-height: 95vh;
+      overflow: auto;
+      border-radius: 22px;
+      background: transparent;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 6rem;
+      right: 2rem;
+      z-index: 10;
+      border: none;
+      background: #111111;
+      color: #F9F6F3;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content-wrapper {
+      border-radius: 22px;
+      overflow: hidden;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        margin-top: 1.5rem;
+      }
+
+      .details-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      section {
+        padding: 3rem 1.25rem;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding-top: 4.2rem;
+        padding-bottom: 3.4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR PLACEHOLDER -->
+  <div id="navbar-placeholder"></div>
+
+  <main>
+    <!-- =========================================
+         SECTION 1: CONTACT HERO
+    ========================================== -->
+    <section class="hero">
+      <div class="container hero-inner">
+
+        <!-- LEFT -->
+        <div class="reveal reveal-left">
+          <div class="hero-label">
+            CONTACT • BOOM LIFTS • MAN LIFTS • CHERRY PICKERS • SCISSOR LIFTS
+          </div>
+
+          <h1 class="hero-title">
+            Let’s plan your next work at height safely.
+          </h1>
+
+          <p class="hero-text">
+            Share a few details about your site, working height and schedule and we’ll help you choose the right
+            combination of boom lifts, man lifts, cherry pickers and scissor lifts for your job.
+          </p>
+
+          <p class="hero-meta">
+            FAST RESPONSES • CLEAR PRICING • PRACTICAL GUIDANCE
+          </p>
+
+          <div class="hero-cta-row">
+            <button class="btn js-open-form">
+              Click here to open the enquiry form
+            </button>
+
+            <button class="btn btn-secondary js-open-form">
+              Click here to request a call back
+            </button>
+          </div>
+
+          <div class="hero-contact-lines">
+            <p class="hero-contact-line">
+              CALL: <a href="tel:+919999999999">+91 99999 99999</a>
+            </p>
+            <p class="hero-contact-line">
+              EMAIL: <a href="mailto:info@boomliftrentals.com">info@boomliftrentals.com</a>
+            </p>
+            <p class="hero-contact-line">
+              WORKING HOURS: Mon – Sat, 9:00 AM to 7:00 PM
+            </p>
+          </div>
+        </div>
+
+        <!-- RIGHT CARD -->
+        <aside class="hero-card reveal reveal-right">
+          <h2 class="hero-card-title">What happens after you contact us?</h2>
+          <p class="hero-card-text">
+            Once we receive your enquiry, we review your scope, clarify any details if needed and then suggest
+            suitable access options. You’ll receive a rental quote that focuses on safe, practical solutions
+            rather than just equipment names.
+          </p>
+          <p class="hero-card-meta">
+            SIMPLE 3-STEP PROCESS • ENQUIRY → DISCUSSION → CONFIRMED SCHEDULE
+          </p>
+          <div>
+            <button class="btn btn-secondary js-open-form">
+              Click here to start with your basic requirement
+            </button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- =========================================
+         SECTION 2: DETAIL BLOCKS + MAP PLACEHOLDER
+    ========================================== -->
+    <section class="details">
+      <div class="details-inner">
+
+        <!-- LEFT -->
+        <div class="reveal reveal-left">
+          <header class="details-heading">
+            <p class="details-tag">Contact details & support</p>
+            <h2 class="details-title">Reach our team for rentals and project support</h2>
+            <p class="details-text">
+              Whether you’re planning a single-day task or a multi-month project, we’re here to help you plan
+              safe height access using boom lifts, man lifts, cherry pickers and scissor lifts.
+            </p>
+          </header>
+
+          <div class="details-grid">
+            <!-- CARD 1: PHONE & EMAIL -->
+            <article class="details-card">
+              <h3 class="details-card-title">Talk to our rental team</h3>
+              <p class="details-card-text">
+                Share your working height, access conditions and timeline. We’ll walk you through suitable
+                access equipment options.
+              </p>
+              <p class="details-card-line">
+                CALL: <a href="tel:+919999999999">+91 99999 99999</a>
+              </p>
+              <p class="details-card-line">
+                EMAIL: <a href="mailto:info@boomliftrentals.com">info@boomliftrentals.com</a>
+              </p>
+              <p class="details-card-meta">Boom lifts • Man lifts • Cherry pickers • Scissor lifts</p>
+            </article>
+
+            <!-- CARD 2: HOURS & RESPONSE -->
+            <article class="details-card">
+              <h3 class="details-card-title">Response times & working hours</h3>
+              <p class="details-card-text">
+                Our team monitors enquiries during working hours and aims to respond quickly with clear next
+                steps and information.
+              </p>
+              <p class="details-card-line">
+                WORKING HOURS: Mon – Sat, 9:00 AM to 7:00 PM
+              </p>
+              <p class="details-card-line">
+                TYPICAL RESPONSE: Within business hours for new project enquiries.
+              </p>
+              <p class="details-card-meta">Enquiries • Calls • Email support</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE: SERVICE AREAS + MAP BOX -->
+        <aside class="details-side reveal reveal-right">
+          <div class="details-side-box">
+            <h3 class="details-side-title">Projects and locations we support</h3>
+            <p class="details-side-text">
+              We support a wide range of commercial, industrial and infrastructure sites across major locations,
+              coordinating boom lifts, man lifts, cherry pickers and scissor lifts based on project needs.
+            </p>
+            <ul class="details-side-list">
+              <li>Construction, industrial and facility maintenance projects.</li>
+              <li>Warehouses, malls, IT parks and logistics hubs.</li>
+              <li>Infrastructure, utilities and outdoor public assets.</li>
+              <li>Short-duration callouts and recurring maintenance tasks.</li>
+            </ul>
+            <button class="btn js-open-form">
+              Click here to tell us where your site is located
+            </button>
+          </div>
+
+          <div class="map-placeholder">
+            <div class="map-placeholder-title">Site location & access notes</div>
+            <p>
+              When you send an enquiry, include a brief note about your site entry, access roads, floor
+              conditions and any restrictions. This helps us select suitable equipment and plan delivery.
+            </p>
+            <div class="map-placeholder-box">
+              SITE / MAP PLACEHOLDER – YOUR VISUAL HERE
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- =========================================
+         SECTION 3: CTA STRIP
+    ========================================== -->
+    <section class="cta-strip">
+      <div class="cta-strip-inner reveal">
+        <h2 class="cta-strip-title">
+          Ready to move from planning to actual work at height?
+        </h2>
+        <p class="cta-strip-text">
+          Tell us what you need to reach safely – boom lifts for long outreach, man lifts for compact
+          spaces, cherry pickers for flexible tasks, or scissor lifts for stable platforms. We’ll help
+          you turn that into a clear rental plan.
+        </p>
+
+        <p class="cta-strip-meta">
+          SIMPLE ENQUIRY • PRACTICAL OPTIONS • CLEAR NEXT STEPS
+        </p>
+
+        <p class="cta-strip-contact">
+          CALL: <a href="tel:+919999999999">+91 99999 99999</a>
+        </p>
+        <p class="cta-strip-contact">
+          EMAIL: <a href="mailto:info@boomliftrentals.com">info@boomliftrentals.com</a>
+        </p>
+
+        <div style="margin-top:1.4rem;">
+          <button class="btn js-open-form">
+            Click here to send your height access enquiry
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER PLACEHOLDER -->
+  <div id="footer-placeholder"></div>
+
+  <!-- POPUP FORM MODAL -->
+  <div class="modal-overlay" id="formModal">
+    <div class="modal-inner">
+      <button class="modal-close" id="formModalClose" aria-label="Close form">&times;</button>
+      <div class="modal-content-wrapper" id="formModalContent">
+        <!-- form.html will be injected here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================
+       SCRIPTS
+  ========================================== -->
+  <script>
+    // MOBILE NAV / HAMBURGER TOGGLE (for navbar.html)
+    function initNavbarToggle() {
+      var toggleBtn = document.getElementById("navbarToggle");
+      var mobilePanel = document.getElementById("navbarMobilePanel");
+
+      if (toggleBtn && mobilePanel) {
+        toggleBtn.addEventListener("click", function () {
+          toggleBtn.classList.toggle("active");
+          mobilePanel.classList.toggle("open");
+        });
+      }
+    }
+
+    // LOAD NAVBAR + FOOTER
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("navbar.html")
+        .then(function (res) { return res.text(); })
+        .then(function (html) {
+          document.getElementById("navbar-placeholder").innerHTML = html;
+          // Init mobile nav AFTER navbar is inserted
+          initNavbarToggle();
+        })
+        .catch(function (err) {
+          console.error("Error loading navbar.html", err);
+        });
+
+      fetch("footer.html")
+        .then(function (res) { return res.text(); })
+        .then(function (html) {
+          document.getElementById("footer-placeholder").innerHTML = html;
+        })
+        .catch(function (err) {
+          console.error("Error loading footer.html", err);
+        });
+
+      setupFormPopup();
+      setupRevealObserver();
+    });
+
+    // POPUP FORM LOGIC
+    function setupFormPopup() {
+      var modal = document.getElementById("formModal");
+      var modalClose = document.getElementById("formModalClose");
+      var modalContent = document.getElementById("formModalContent");
+      var formLoaded = false;
+
+      document.addEventListener("click", function (event) {
+        var target = event.target;
+        if (target.classList.contains("js-open-form")) {
+          event.preventDefault();
+          openModal();
+        }
+      });
+
+      function openModal() {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+
+        if (!formLoaded) {
+          fetch("form.html")
+            .then(function (res) { return res.text(); })
+            .then(function (html) {
+              modalContent.innerHTML = html;
+              formLoaded = true;
+            })
+            .catch(function () {
+              modalContent.innerHTML =
+                "<div style='background:#F9F6F3;padding:2rem;border-radius:1rem;color:#111;'>Unable to load form at the moment.</div>";
+            });
+        }
+      }
+
+      function closeModal() {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      modalClose.addEventListener("click", closeModal);
+
+      modal.addEventListener("click", function (event) {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && modal.classList.contains("active")) {
+          closeModal();
+        }
+      });
+    }
+
+    // SCROLL REVEAL
+    function setupRevealObserver() {
+      if (!("IntersectionObserver" in window)) {
+        var all = document.querySelectorAll(".reveal");
+        all.forEach(function (el) {
+          el.classList.add("reveal-visible");
+        });
+        return;
+      }
+
+      var revealEls = document.querySelectorAll(".reveal");
+      if (!revealEls.length) return;
+
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("reveal-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      revealEls.forEach(function (el) {
+        observer.observe(el);
+      });
+    }
+  </script>
+</body>
+</html>

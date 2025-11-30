@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- =========================================
+       META + TITLE
+  ========================================== -->
+  <meta charset="UTF-8">
+  <title>Blog | Boom Lifts, Scissor Lifts & Work at Height Tips</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FONT: OSWALD -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- =========================================
+       STYLES
+  ========================================== -->
+  <style>
+    /* GLOBAL RESET */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Oswald", sans-serif;
+    }
+
+    body {
+      background-color: #F9F6F3;
+      color: #111111;
+      line-height: 1.4;
+      overflow-x: hidden;
+    }
+
+    main {
+      margin-top: 80px; /* space for sticky navbar fragment */
+    }
+
+    section {
+      padding: 4rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.7rem;
+      border-radius: 999px;
+      border: none;
+      outline: none;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      background-color: #872341;
+      color: #F9F6F3;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      background-color: #A6B28B; /* only colour change */
+      color: #111;
+    }
+
+    .btn-secondary {
+      background-color: #F9F6F3;
+      color: #872341;
+      border: 1px solid #F5C9B0;
+    }
+
+    .btn-secondary:hover {
+      background-color: #F5C9B0;
+      color: #111;
+    }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal-left {
+      transform: translateX(-40px);
+    }
+
+    .reveal-right {
+      transform: translateX(40px);
+    }
+
+    .reveal-visible {
+      opacity: 1;
+      transform: translateX(0) translateY(0);
+    }
+
+    /* =========================================
+       SECTION 1: HERO
+    ========================================== */
+    .hero {
+      background: linear-gradient(120deg, #872341 0%, #A6B28B 55%, #F5C9B0 100%);
+      color: #F9F6F3;
+      padding-top: 5rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 2.4rem;
+      align-items: center;
+    }
+
+    .hero-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+      color: #F9F6F3;
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-text {
+      font-size: 0.98rem;
+      max-width: 34rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-meta {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* FEATURED ARTICLE CARD */
+    .hero-feature-card {
+      background-color: #F9F6F3;
+      border-radius: 22px;
+      padding: 1.4rem 1.3rem;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .hero-feature-tag {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #872341;
+    }
+
+    .hero-feature-title {
+      font-size: 1.1rem;
+      color: #111;
+    }
+
+    .hero-feature-text {
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .hero-feature-meta {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #777;
+    }
+
+    /* =========================================
+       SECTION 2: BLOG GRID (6 POSTS)
+    ========================================== */
+    .blog-grid-section {
+      background-color: #FFFFFF;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-tag {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #872341;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 1.9rem;
+      text-transform: uppercase;
+    }
+
+    .section-sub {
+      font-size: 0.95rem;
+      color: #555;
+      max-width: 34rem;
+      margin: 0.7rem auto 0;
+    }
+
+    .blog-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.6rem;
+    }
+
+    .blog-card {
+      background-color: #F9F6F3;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid #E1DDD5;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .blog-card-img {
+      height: 280px;
+      overflow: hidden;
+    }
+
+    .blog-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .blog-card-body {
+      padding: 1rem 1.1rem 1.3rem;
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    .blog-card-meta {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #872341;
+    }
+
+    .blog-card-title {
+      font-size: 1rem;
+    }
+
+    .blog-card-text {
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .blog-card-footer {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #777;
+      margin-top: 0.4rem;
+    }
+
+    .blog-card-cta {
+      margin-top: 0.7rem;
+    }
+
+    /* =========================================
+       SECTION 3: CTA STRIP
+    ========================================== */
+    .cta-strip {
+      background-color: #111111;
+      color: #F9F6F3;
+    }
+
+    .cta-strip-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .cta-strip-title {
+      font-size: 1.9rem;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+    }
+
+    .cta-strip-text {
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .cta-strip-meta {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #F5C9B0;
+      margin-bottom: 1.3rem;
+    }
+
+    .cta-strip-contact {
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .cta-strip-contact a {
+      color: #F5C9B0;
+      text-decoration: none;
+    }
+
+    .cta-strip-contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* MODAL FORM POPUP */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 2000;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-inner {
+      position: relative;
+      max-width: 1100px;
+      width: 100%;
+      max-height: 95vh;
+      overflow: auto;
+      border-radius: 22px;
+      background: transparent;
+    }
+
+    .modal-close {
+      position: absolute;
+       top: 6rem;
+      right: 2rem;
+      z-index: 10;
+      border: none;
+      background: #111111;
+      color: #F9F6F3;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content-wrapper {
+      border-radius: 22px;
+      overflow: hidden;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-feature-card {
+        margin-top: 1.5rem;
+      }
+
+      .blog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      section {
+        padding: 3rem 1.25rem;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding-top: 4.2rem;
+        padding-bottom: 3.4rem;
+      }
+
+      .hero-title {
+        font-size: 1.8rem;
+      }
+
+      .hero-text {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR PLACEHOLDER -->
+  <div id="navbar-placeholder"></div>
+
+  <main>
+    <!-- =========================================
+         SECTION 1: HERO
+    ========================================== -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <!-- LEFT TEXT -->
+        <div class="reveal reveal-left">
+          <div class="hero-label">
+            BLOG • BOOM LIFTS • SCISSOR LIFTS • MAN LIFTS • CHERRY PICKERS
+          </div>
+
+          <h1 class="hero-title">
+            Height access insights, tips and project ideas.
+          </h1>
+
+          <p class="hero-text">
+            Explore articles on choosing the right access equipment, planning rentals, improving on-site
+            safety and getting more done at height with boom lifts, scissor lifts, man lifts and cherry pickers.
+          </p>
+
+          <p class="hero-meta">
+            PRACTICAL GUIDES • PROJECT STORIES • SAFETY REMINDERS
+          </p>
+
+          <div class="hero-cta-row">
+            <button class="btn js-open-form">
+              Click here to send us a topic request
+            </button>
+
+            <button class="btn btn-secondary js-open-form">
+              Click here to get a rental enquiry form
+            </button>
+          </div>
+        </div>
+
+        <!-- FEATURED ARTICLE -->
+        <aside class="hero-feature-card reveal reveal-right">
+          <div class="hero-feature-tag">Featured article</div>
+          <h2 class="hero-feature-title">
+            7 checks before you choose a boom lift or scissor lift for your next job.
+          </h2>
+          <p class="hero-feature-text">
+            Working height, outreach, floor conditions and how many people you need on the platform all influence
+            whether a boom lift, scissor lift, man lift or cherry picker is the best option. This article walks
+            through the key questions to ask before you book.
+          </p>
+          <p class="hero-feature-meta">
+            Height access planning • Quick read
+          </p>
+          <div>
+            <button class="btn btn-secondary js-open-form">
+              Click here to get a copy of our planning checklist
+            </button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- =========================================
+         SECTION 2: BLOG GRID (6 POSTS)
+    ========================================== -->
+    <section class="blog-grid-section">
+      <div class="container">
+
+        <header class="section-heading reveal">
+          <p class="section-tag">Latest from the blog</p>
+          <h2 class="section-title">Articles for safer, smarter work at height</h2>
+          <p class="section-sub">
+            Use these posts as starting points when you plan boom lift, scissor lift, man lift or cherry picker
+            rentals for your upcoming projects.
+          </p>
+        </header>
+
+        <div class="blog-grid">
+
+          <!-- POST 1 -->
+          <article class="blog-card reveal reveal-left">
+            <div class="blog-card-img">
+              <!-- replace with real image -->
+              <img
+                src="./images/bs3.png"
+                alt="Technicians comparing boom lift and scissor lift"
+              >
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">Equipment choice • Boom vs scissor</div>
+              <h3 class="blog-card-title">Boom lift or scissor lift: which one fits your project?</h3>
+              <p class="blog-card-text">
+                A simple comparison of when to use boom lifts for outreach and when a scissor lift’s wide
+                platform is the better option for straight-up access tasks.
+              </p>
+              <div class="blog-card-footer">3–4 minute read</div>
+              <div class="blog-card-cta">
+                <button class="btn btn-secondary js-open-form">
+                  Click here to get a <br> summary of this article
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- POST 2 -->
+          <article class="blog-card reveal">
+            <div class="blog-card-img">
+              <img
+                src="./images/s7.avif"
+                alt="Scissor lift working safely inside a warehouse"
+              >
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">Warehouse projects</div>
+              <h3 class="blog-card-title">Planning scissor lift work in live warehouses</h3>
+              <p class="blog-card-text">
+                Tips on traffic management, aisle planning and shift timing when you use electric scissor
+                lifts in active logistics and storage facilities.
+              </p>
+              <div class="blog-card-footer">Safety checklist • Indoors</div>
+              <div class="blog-card-cta">
+                <button class="btn btn-secondary js-open-form">
+                  Click here to ask for <br> our warehouse checklist
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- POST 3 -->
+          <article class="blog-card reveal reveal-right">
+            <div class="blog-card-img">
+              <img
+                src="./images/b8.jpg"
+                alt="Rough-terrain boom lift on a construction site"
+              >
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">Construction sites</div>
+              <h3 class="blog-card-title">Rough-terrain access for outdoor construction and infrastructure</h3>
+              <p class="blog-card-text">
+                How rough-terrain boom lifts and scissor lifts handle gradients, unfinished ground and long
+                days on open construction projects.
+              </p>
+              <div class="blog-card-footer">Project planning • Outdoors</div>
+              <div class="blog-card-cta">
+                <button class="btn btn-secondary js-open-form">
+                  Click here to request <br> sample RT specifications
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- POST 4 -->
+          <article class="blog-card reveal reveal-left">
+            <div class="blog-card-img">
+              <img
+                src="./images/cherry.jpg"
+                alt="Cherry picker positioned near signage work"
+              >
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">Cherry pickers</div>
+              <h3 class="blog-card-title">When a truck-mounted cherry picker is the fastest solution</h3>
+              <p class="blog-card-text">
+                Learn where cherry pickers beat other options for quick jobs like signage, high mast
+                lighting, street infrastructure and short-duration callouts.
+              </p>
+              <div class="blog-card-footer">Access strategy • Callout work</div>
+              <div class="blog-card-cta">
+                <button class="btn btn-secondary js-open-form">
+                  Click here to send your <br> cherry picker requirement
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- POST 5 -->
+          <article class="blog-card reveal">
+            <div class="blog-card-img">
+              <img
+                src="./images/b2.jpg"
+                alt="Operator performing pre-start checks on a boom lift"
+              >
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">Daily safety</div>
+              <h3 class="blog-card-title">Essential pre-start checks for boom lifts and scissor lifts</h3>
+              <p class="blog-card-text">
+                A quick rundown of visual inspections, controls tests and environment checks operators
+                should complete before raising the platform.
+              </p>
+              <div class="blog-card-footer">Safety basics • Operator focus</div>
+              <div class="blog-card-cta">
+                <button class="btn btn-secondary js-open-form">
+                  Click here to request <br> a printable checklist
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- POST 6 -->
+          <article class="blog-card reveal reveal-right">
+            <div class="blog-card-img">
+              <img
+                src="./images/bs1.jpg"
+                alt="Planner reviewing project schedule for access rentals"
+              >
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">Rental planning</div>
+              <h3 class="blog-card-title">Building access equipment into your project schedule</h3>
+              <p class="blog-card-text">
+                How to line up boom lifts, scissor lifts, man lifts and cherry pickers with other trades,
+                avoiding idle time while keeping access ready when you need it.
+              </p>
+              <div class="blog-card-footer">Project controls • Scheduling</div>
+              <div class="blog-card-cta">
+                <button class="btn btn-secondary js-open-form">
+                  Click here to share <br> your project timeline
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         SECTION 3: CTA STRIP
+    ========================================== -->
+    <section class="cta-strip">
+      <div class="cta-strip-inner reveal">
+        <h2 class="cta-strip-title">
+          Want guidance for your specific project?
+        </h2>
+        <p class="cta-strip-text">
+          If you’re planning work at height and not sure whether you need boom lifts, scissor lifts, man lifts
+          or cherry pickers, send us a short note. We’ll review your scope and suggest practical access options.
+        </p>
+
+        <p class="cta-strip-meta">
+          PROJECT-BY-PROJECT GUIDANCE • FAST RESPONSES
+        </p>
+
+        <p class="cta-strip-contact">
+          CALL: <a href="tel:+919999999999">+91 99999 99999</a>
+        </p>
+        <p class="cta-strip-contact">
+          EMAIL: <a href="mailto:info@boomliftrentals.com">info@boomliftrentals.com</a>
+        </p>
+
+        <div style="margin-top:1.4rem;">
+          <button class="btn js-open-form">
+            Click here to send your project enquiry
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER PLACEHOLDER -->
+  <div id="footer-placeholder"></div>
+
+  <!-- POPUP FORM MODAL -->
+  <div class="modal-overlay" id="formModal">
+    <div class="modal-inner">
+      <button class="modal-close" id="formModalClose" aria-label="Close form">&times;</button>
+      <div class="modal-content-wrapper" id="formModalContent">
+        <!-- form.html will be injected here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================
+       SCRIPTS
+  ========================================== -->
+  <script>
+    // HAMBURGER / MOBILE NAV TOGGLE (for navbar.html)
+    function initNavbarToggle() {
+      var toggleBtn = document.getElementById("navbarToggle");
+      var mobilePanel = document.getElementById("navbarMobilePanel");
+
+      if (toggleBtn && mobilePanel) {
+        toggleBtn.addEventListener("click", function () {
+          toggleBtn.classList.toggle("active");
+          mobilePanel.classList.toggle("open");
+        });
+      }
+    }
+
+    // LOAD NAVBAR + FOOTER
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("navbar.html")
+        .then(function (res) { return res.text(); })
+        .then(function (html) {
+          document.getElementById("navbar-placeholder").innerHTML = html;
+          // init hamburger AFTER navbar HTML is inserted
+          initNavbarToggle();
+        })
+        .catch(function (err) {
+          console.error("Error loading navbar.html", err);
+        });
+
+      fetch("footer.html")
+        .then(function (res) { return res.text(); })
+        .then(function (html) {
+          document.getElementById("footer-placeholder").innerHTML = html;
+        })
+        .catch(function (err) {
+          console.error("Error loading footer.html", err);
+        });
+
+      setupFormPopup();
+      setupRevealObserver();
+    });
+
+    // POPUP FORM LOGIC
+    function setupFormPopup() {
+      var modal = document.getElementById("formModal");
+      var modalClose = document.getElementById("formModalClose");
+      var modalContent = document.getElementById("formModalContent");
+      var formLoaded = false;
+
+      document.addEventListener("click", function (event) {
+        var target = event.target;
+        if (target.classList.contains("js-open-form")) {
+          event.preventDefault();
+          openModal();
+        }
+      });
+
+      function openModal() {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+
+        if (!formLoaded) {
+          fetch("form.html")
+            .then(function (res) { return res.text(); })
+            .then(function (html) {
+              modalContent.innerHTML = html;
+              formLoaded = true;
+            })
+            .catch(function () {
+              modalContent.innerHTML =
+                "<div style='background:#F9F6F3;padding:2rem;border-radius:1rem;color:#111;'>Unable to load form at the moment.</div>";
+            });
+        }
+      }
+
+      function closeModal() {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      modalClose.addEventListener("click", closeModal);
+
+      modal.addEventListener("click", function (event) {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && modal.classList.contains("active")) {
+          closeModal();
+        }
+      });
+    }
+
+    // GENERIC SCROLL REVEAL
+    function setupRevealObserver() {
+      if (!("IntersectionObserver" in window)) {
+        var all = document.querySelectorAll(".reveal");
+        all.forEach(function (el) {
+          el.classList.add("reveal-visible");
+        });
+        return;
+      }
+
+      var revealEls = document.querySelectorAll(".reveal");
+      if (!revealEls.length) return;
+
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("reveal-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      revealEls.forEach(function (el) {
+        observer.observe(el);
+      });
+    }
+  </script>
+</body>
+</html>
