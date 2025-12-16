@@ -489,6 +489,31 @@
         padding-bottom: 3.4rem;
       }
     }
+    .inline-form-section {
+      background: #FFFFFF;
+      padding: 3rem 1.5rem;
+    }
+
+    .inline-form-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .inline-form-heading {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 1rem;
+      color: #432323;
+      margin-bottom: 0.6rem;
+    }
+
+    .inline-form-sub {
+      font-size: 0.9rem;
+      color: #444;
+      margin-bottom: 1.5rem;
+      max-width: 520px;
+    }
+
   </style>
 </head>
 
@@ -649,7 +674,18 @@
         </aside>
       </div>
     </section>
+<section>
+      <div class="inline-form-inner">
+        <h2 class="inline-form-heading">Enquiry form</h2>
+        <p class="inline-form-sub">
+          Prefer to see the full enquiry form directly on this page? Fill it out below – the same form
+          that opens in the popup is shown here in full view.
+        </p>
 
+        <!-- form.html will be injected here -->
+        <div id="inline-form-placeholder"></div>
+      </div>
+    </section>
     <!-- =========================================
          SECTION 3: CTA STRIP
     ========================================== -->
@@ -735,7 +771,17 @@
         .catch(function (err) {
           console.error("Error loading footer.html", err);
         });
-
+fetch("form.html")
+        .then(function (response) { return response.text(); })
+        .then(function (html) {
+          var inlinePlaceholder = document.getElementById("inline-form-placeholder");
+          if (inlinePlaceholder) {
+            inlinePlaceholder.innerHTML = html;
+          }
+        })
+        .catch(function (err) {
+          console.error("Error loading inline form.html", err);
+        });
       setupFormPopup();
       setupRevealObserver();
     });
