@@ -314,7 +314,7 @@
     ========================================== */
     .image-strip {
       position: relative;
-      min-height: 70vh;
+      min-height: 100vh;
       padding: 0;
       overflow: hidden;
     }
@@ -358,7 +358,7 @@
     }
 
     .image-strip-content {
-      max-width: 1100px;
+      max-width: 1300px;
       width: 100%;
       color: #F9F6F3;
     }
@@ -658,6 +658,39 @@
         max-width: 100%;
       }
     }
+
+    /* =========================================
+   SECTION 3: IMAGE + CONTENT SPLIT
+========================================= */
+.image-split {
+  background-color: #FFFFFF;
+}
+
+.image-split-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.image-split-media img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+  display: block;
+}
+
+/* Mobile */
+@media (max-width: 992px) {
+  .image-split-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .image-split-media {
+    order: -1; /* image on top for mobile */
+  }
+}
+
   </style>
 </head>
 
@@ -806,37 +839,42 @@
     </section>
 
     <!-- ============ SECTION 3: IMAGE STRIP ============ -->
-    <section class="image-strip" id="boomImageStrip">
-      <div class="image-strip-bg">
-        <!-- Replace this with your real boom lift image -->
-        <img
-          src="./images/main001.jpg"
-          alt="Boom lift working on an exterior façade"
-        >
-      </div>
+   <section class="image-split">
+  <div class="container image-split-inner">
 
-      <div class="image-strip-overlay">
-        <div class="image-strip-content reveal">
-          <p class="image-strip-tag">Real project environments</p>
-          <h2 class="image-strip-title">
-            See how boom lifts fit into live projects.
-          </h2>
-          <p class="image-strip-text">
-            From façade installation and glass cleaning to industrial shutdowns and bridge work, boom lifts provide
-            controlled access where scaffolding is too slow or inflexible. Use them for short-term jobs, recurring
-            maintenance or multi-stage construction programmes.
-          </p>
+    <!-- LEFT CONTENT -->
+    <div class="image-split-content reveal reveal-left">
+      <p class="section-tag">Real project environments</p>
+      <h2 class="section-title">
+        See how boom lifts fit into live projects
+      </h2>
 
-          <p class="image-strip-meta">
-            Controlled height access • Stable work platform • Quick setup and demobilisation
-          </p>
+      <p class="section-sub">
+        From façade installation and glass cleaning to industrial shutdowns and bridge work,
+        boom lifts provide controlled access where scaffolding is too slow or inflexible.
+      </p>
 
-          <button class="btn js-open-form">
-            Click here to request boom lift availability
-          </button>
-        </div>
-      </div>
-    </section>
+      <p class="section-sub">
+        Use them for short-term jobs, recurring maintenance or multi-stage construction
+        programmes with fast mobilisation and stable work platforms.
+      </p>
+
+      <button class="btn js-open-form">
+        Click here to request boom lift availability
+      </button>
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="image-split-media reveal reveal-right">
+      <img
+        src="./images/BM08.png"
+        alt="Boom lift working on a project site"
+      >
+    </div>
+
+  </div>
+</section>
+
 
     <!-- ============ SECTION 4: BENEFITS ============ -->
     <section class="benefits">
